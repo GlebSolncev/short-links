@@ -13,7 +13,7 @@ class CreateLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('links', function (Blueprint $table) {
+        Schema::create('default_links', function (Blueprint $table) {
             $table->string('endpoint', 6)->primary();
 
             $table->string('url');

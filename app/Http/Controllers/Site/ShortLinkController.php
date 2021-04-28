@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Foundation\ShortLinks\Contracts\iShortLink;
-use App\Foundation\ShortLinks\DefaultShortLinks\Requests\ShortLinkRequest;
+use App\Foundation\ShortLinks\DefaultShortLinks\Requests\DefaultShortLinkRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -34,10 +34,10 @@ class ShortLinkController extends Controller
     }
 
     /**
-     * @param \App\Foundation\ShortLinks\DefaultShortLinks\Requests\ShortLinkRequest $request
+     * @param DefaultShortLinkRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(ShortLinkRequest $request)
+    public function store(DefaultShortLinkRequest $request)
     {
         $this->shortLinkManager->store($request->link);
 

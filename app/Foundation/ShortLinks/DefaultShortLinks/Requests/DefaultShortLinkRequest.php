@@ -4,7 +4,7 @@ namespace App\Foundation\ShortLinks\DefaultShortLinks\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShortLinkRequest extends FormRequest
+class DefaultShortLinkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

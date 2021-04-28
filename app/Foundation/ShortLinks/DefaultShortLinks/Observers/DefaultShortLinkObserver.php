@@ -5,7 +5,7 @@ namespace App\Foundation\ShortLinks\DefaultShortLinks\Observers;
 use App\Foundation\ShortLinks\DefaultShortLinks\Services\DefaultShortLinksService;
 use Illuminate\Database\Eloquent\Model;
 
-class ShortLinkObserver
+class DefaultShortLinkObserver
 {
     /**
      * @var DefaultShortLinksService

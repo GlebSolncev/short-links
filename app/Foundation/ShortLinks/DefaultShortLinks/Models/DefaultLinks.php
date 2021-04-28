@@ -14,7 +14,7 @@ class DefaultLinks extends Model
     /**
      * @var string $table
      */
-    protected $table = 'links';
+    protected $table = 'default_links';
 
     /**
      * @var string $primaryKey
