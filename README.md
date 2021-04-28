@@ -15,11 +15,20 @@
 
 #### CLI commands
 - make init
+  
+Build services to application
 - make ps
-  -- for check your services state (if Up and healthy: next commands)
+  
+for check your services state (if Up and healthy: next commands)
 - make migrate
+  
+migrate table(s) in database
+
 - make up
-- click on link in cli or follow http://localhost:8000/short-link
+  
+Start work application
+
+You can click link on cli or open http://localhost:8000/short-link
 
 
 ## Other command
