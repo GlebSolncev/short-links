@@ -20,6 +20,7 @@ class DefaultLinks extends Model
      * @var string $primaryKey
      */
     protected $primaryKey = 'endpoint';
+
     /**
      * @var bool $incrementing
      */

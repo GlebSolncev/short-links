@@ -23,7 +23,8 @@ class ShortLinkObserver
     }
 
     /**
-     * @param Model $model
+     * @param \Illuminate\Database\Eloquent\Model $model
+     * @throws \ErrorException
      */
     public function creating(Model $model)
     {
