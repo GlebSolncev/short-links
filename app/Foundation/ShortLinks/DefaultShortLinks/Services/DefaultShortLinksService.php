@@ -67,7 +67,6 @@ class DefaultShortLinksService implements iShortLink
             $uniqueEndpoint = $this->checkUniqueEndpoint($endpoint);
         }
 
-
         $model = $this->shortLinkRepository->insert([
             'url'      => $link,
             'endpoint' => $endpoint
@@ -83,9 +82,11 @@ class DefaultShortLinksService implements iShortLink
     public function redirect($endpoint)
     {
         $model = $this->shortLinkRepository->getWithWhereSingle([], [['endpoint', '=', $endpoint], ['active', '=', true]]);
+
         if (!$model) {
             throw new NotFoundHttpException('Not found');
-        };
+        }
+
         $this->shortLinkRepository->update($model, ['count' => ++$model->count]);
         return $model->url;
     }
