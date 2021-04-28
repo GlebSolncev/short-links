@@ -21,9 +21,11 @@ services:
     image: mysql:5.7
     container_name: short-links-db
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
-      MYSQL_ROOT_PASSWORD: myrootpassword
-      MYSQL_DATABASE: short-link
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
     ports:
       - "3306:3306"
     healthcheck:
