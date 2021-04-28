@@ -1,0 +1,48 @@
+version: "3.7"
+services:
+
+  app:
+    build:
+      args:
+        user: hlieb
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: short-links
+    container_name: short-links-app
+    restart: unless-stopped
+    working_dir: /var/www/short-links
+    volumes:
+      - ./:/var/www/short-links
+    networks:
+      - short-links
+
+  db:
+    image: mysql:5.7
+    container_name: short-links-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: myrootpassword
+      MYSQL_DATABASE: short-link
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost" ]
+    networks:
+      - short-links
+
+  nginx:
+    image: nginx:alpine
+    container_name: short-links-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www/short-links
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - short-links
+
+networks:
+  short-links:
+    driver: bridge
